@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-LoginApplication<login>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.gpch.login.LoginApplication",
+            "projectName": "login",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SigninApplication<signup>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.gpch.signup.SigninApplication",
+            "projectName": "signup",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-RequestApplication<request>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.gpch.request.RequestApplication",
+            "projectName": "request",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootWebApplication<request>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.project.SpringBootWebApplication",
+            "projectName": "request",
+            "args": ""
+        }
+    ]
+}

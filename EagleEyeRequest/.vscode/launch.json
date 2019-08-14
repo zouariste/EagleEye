@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootWebApplication<request>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.project.SpringBootWebApplication",
+            "projectName": "request",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootWebApplication<spring-boot-web>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.project.SpringBootWebApplication",
+            "projectName": "spring-boot-web",
+            "args": ""
+        }
+    ]
+}
