@@ -1,6 +1,8 @@
-# DRAVSSOR REPUTATION MONITORING
+# DRAVSSOR REPUTATION MONITORING EagleEye
 
-DATASOURCE INFO in the application.proprities file.
+DATASOURCE INFO in the application.proprities files.
+
+*This is not a secure version
 
 
 
