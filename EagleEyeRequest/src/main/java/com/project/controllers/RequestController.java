@@ -98,4 +98,30 @@ public class RequestController {
         return "redirect:/requests";
     }
 
+    /**
+     * Dashbords
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String list2(Model model) {
+        model.addAttribute("requests", requestService.listAllRequests());
+        System.out.println("Returning rpoducts:");
+        return "dashboards";
+    }
+
+       /**
+     * Visualize request by its id.
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping("request/visualize/{id}")
+    public String visualize(@PathVariable Integer id, Model model) {
+        Request r=requestService.getRequestById(id);
+        requestService.visualizeRequest(r);
+        model.addAttribute("request", requestService.getRequestById(id));
+        return "dashbord";
+    }
 }

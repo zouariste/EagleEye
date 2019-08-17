@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/dashb :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(requests)}">
+        <h2>Request List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th bgcolor="#00ccff">Visualize</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Keywords</th>
+                <th>Languages</th>
+                
+            </tr>
+            <tr th:each="request : ${requests}">
+                <td bgcolor="#ccf5ff"><a th:href="${'/request/visualize/' + request.id}">Visualize</a></td>
+                <td th:text="${request.id}"><a href="/request/${request.id}">Id</a></td>
+                <td th:text="${request.name}">descirption</td>
+                <td th:text="${request.email}">email</td>
+                <td th:text="${request.keywords}">keywords</td>
+                <td th:text="${request.languages}">Languages</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Visualization</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/dashb :: header"></th:block> /*/-->
+
+    <h2>Visualization</h2>
+        <table>
+            <tr>
+                <div>
+                        <table class="table table-striped">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Name</th>
+                                    <th>Keywords</th>
+                                    <th>Languages</th>
+                                    
+                                </tr>
+                                <tr>
+                                    <td th:text="${request.id}"><a href="/request/${request.id}">Id</a></td>
+                                    <td th:text="${request.name}">descirption</td>
+                                    <td th:text="${request.keywords}">keywords</td>
+                                    <td th:text="${request.languages}">Languages</td>
+                                </tr>
+                            </table>
+            
+        
+            </div>
+            </tr>
+            
+</div>
+
+</body>
+</html>

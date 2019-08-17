@@ -6,6 +6,8 @@ import com.project.entities.Request;
 import com.project.repositories.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Request service implement.
@@ -42,6 +44,12 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public void deleteRequest(Integer id) {
         requestRepository.deleteById(id);
+    }
+
+    @Override
+    @RequestMapping(value = "http://localhost:5000/json-example", method = RequestMethod.POST)
+    public void visualizeRequest(Request request){
+        
     }
 
 }

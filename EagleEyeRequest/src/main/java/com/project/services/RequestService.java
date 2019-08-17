@@ -12,4 +12,6 @@ public interface RequestService {
 
     void deleteRequest(Integer id);
 
+    void visualizeRequest(Request request);
+
 }

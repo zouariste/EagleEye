@@ -1,4 +1,4 @@
-# DRAVSSOR REPUTATION MONITORING EagleEye
+# DRAVSSOR REPUTATION MONITORING
 
 Please your SQL DATASOURCE INFO in the application.proprities file.
 
