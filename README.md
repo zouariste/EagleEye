@@ -1,11 +1,4 @@
 # DRAVSSOR REPUTATION MONITORING EagleEye
 
-DATASOURCE INFO in the application.proprities files.
+We've moved the properties settings to an external configuration server using the Spring Cloud Config package.
 
-*This is not a secure version
-
-
-
-Microservice's Ports:
-
-Login(8080), Signup(8081), Request(8082), Eureka(8090)
