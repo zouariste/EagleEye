@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Business Details</h2>
+        <div>
+
+            <form class="form-horizontal" th:object="${business}">
+                <div class="form-group">
+
+                        <label class="col-sm-2 control-label">Business Id:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.id}">Business Id</p></div>
+
+                        <label class="col-sm-2 control-label">Title:</label>
+                        <div class="col-sm-10">    
+                        <p class="form-control-static" th:text="${business.title}">Title</p></div>
+
+                        <label class="col-sm-2 control-label">Description:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.description}">Description</p></div>
+
+                        <label class="col-sm-2 control-label">Address:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.address}">Address</p></div>
+
+                        <label class="col-sm-2 control-label">Cost:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.cost}">Cost</p></div>
+
+                        <label class="col-sm-2 control-label">Location: (Select a country)</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.location}">Location</p></div>
+
+                        <label class="col-sm-2 control-label">Keywords:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.keywords}">Keywords</p></div>
+
+                        <label class="col-sm-2 control-label">Start date:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.startdate}">Start date</p></div>
+
+                        <label class="col-sm-2 control-label">End date:</label>
+                        <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${business.enddate}">End date</p></div>
+
+                    </div>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>

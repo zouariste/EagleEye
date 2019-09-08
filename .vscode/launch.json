@@ -39,6 +39,36 @@
             "mainClass": "com.project.SpringBootWebApplication",
             "projectName": "request",
             "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringBootWebApplication<business>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.project.SpringBootWebApplication",
+            "projectName": "business",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<configserver>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.djar.configserver.DemoApplication",
+            "projectName": "configserver",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<exchange>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ramzi.exchange.DemoApplication",
+            "projectName": "exchange",
+            "args": ""
         }
     ]
 }

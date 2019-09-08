@@ -14,20 +14,22 @@
         <table class="table table-striped">
             <tr>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Description</th>
+                <th>Type</th>
                 <th>Keywords</th>
                 <th>Languages</th>
+                <th>Last date of execution</th>
                 <th>View</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             <tr th:each="request : ${requests}">
                 <td th:text="${request.id}"><a href="/request/${request.id}">Id</a></td>
-                <td th:text="${request.name}">descirption</td>
-                <td th:text="${request.email}">email</td>
-                <td th:text="${request.keywords}">keywords</td>
+                <td th:text="${request.name}">Descirption</td>
+                <td th:text="${request.type}">Type</td>
+                <td th:text="${request.keywords}">Keywords</td>
                 <td th:text="${request.languages}">Languages</td>
+                <td th:text="${request.dateexe}">Last date of execution</td>
                 <td><a th:href="${ '/request/' + request.id}">View</a></td>
                 <td><a th:href="${'/request/edit/' + request.id}">Edit</a></td>
                 <td><a th:href="${'/request/delete/' + request.id}">Delete</a></td>

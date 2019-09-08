@@ -1,27 +1,49 @@
 version: '2'
 
 services:
-
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     ports:
-      - "2181:2181"
+      - 2181:2181
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-
-  broker:
+  kafka:
     image: confluentinc/cp-kafka:latest
     ports:
-      - "9092:9092"
+      - 9092:9092
     depends_on:
       - zookeeper
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       # For more details see See https://rmoff.net/2018/08/02/kafka-listeners-explained/
-      #KAFKA_LISTENERS: LISTENER_INSIDE://broker:29092,LISTENER_HOST://localhost:9092
-      KAFKA_ADVERTISED_LISTENERS: LISTENER_INSIDE://broker:29092,LISTENER_HOST://192.168.99.100:9092
+      #KAFKA_LISTENERS: LISTENER_INSIDE://kafka:29092,LISTENER_HOST://192.168.99.100:9092
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_INSIDE://kafka:29092,LISTENER_HOST://192.168.99.100:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_INSIDE:PLAINTEXT,LISTENER_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_INSIDE
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_HEAP_OPTS: " -Xmx256m -Xms256m"
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.1.1
+    ports:
+        - 9200:9200
+    environment:
+      discovery.type: single-node
+      http.cors.enabled: "true"
+      http.cors.allow-origin: "*"
+      ES_JAVA_OPTS: " -Xms256m -Xmx256m"
+  kibana:
+      image: docker.elastic.co/kibana/kibana:7.1.1
+      ports:
+          - 5601:5601
+      environment:
+          SERVER_NAME: kibana
+          ELASTICSEARCH_URL: http://elasticsearch:9200
+  grafana:
+    image : grafana/grafana
+    ports:
+      - 3000:3000
+    environment:
+          SERVER_NAME: grafana
+          ELASTICSEARCH_URL: http://elasticsearch:9200

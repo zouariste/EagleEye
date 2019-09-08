@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+        
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <br>
+        <h3>Business management</h3>
+        <br>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" th:href="@{/businesss}">Businesses</a></li>
+                        <li><a href="#" th:href="@{/business/new}">Create new Business</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    <div th:if="${not #lists.isEmpty(businesss)}">
+        <h2>Business List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th> <!-- *** / ***description / ***address / **location / startdate / enddate / ***cost / ***keywords -->
+                <th>Title</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Cost</th>
+                <th>Location</th>
+                <th>Keywords</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="business : ${businesss}">
+                <td th:text="${business.id}"><a href="/business/${business.id}">Id</a></td>
+                <td th:text="${business.title}">Title</td>
+                <td th:text="${business.description}">Description</td>
+                <td th:text="${business.address}">Address</td>
+                <td th:text="${business.cost}">Cost</td>
+                <td th:text="${business.location}">Location</td>
+                <td th:text="${business.keywords}">Keywords</td>
+                <td th:text="${business.startdate}">Start date</td>
+                <td th:text="${business.enddate}">End date</td>  
+                <td><a th:href="${ '/business/' + business.id}">View</a></td>
+                <td><a th:href="${'/business/edit/' + business.id}">Edit</a></td>
+                <td><a th:href="${'/business/delete/' + business.id}">Delete</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>

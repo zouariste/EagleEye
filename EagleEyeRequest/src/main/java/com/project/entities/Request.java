@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Product entity.
@@ -25,14 +26,34 @@ public class Request {
 
 	
     private String name;	
-    private String email;
+	private String email;
+	private String type;
+	private Date dateexe;
+
+
+
+
 	@ElementCollection(targetClass=String.class)
 
     private Collection<String> keywords;
 	@ElementCollection(targetClass=String.class)
 
     private Collection<String> languages;
+	public Date getDateexe() {
+		return this.dateexe;
+	}
 
+	public void setDateexe(Date dateexe) {
+		this.dateexe = dateexe;
+	}
+	
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Collection<String> getLanguages() {
 		return this.languages;
@@ -91,6 +112,18 @@ public class Request {
 	public void setName	(String name	) {
 		this.name	 = name	;
 	}
+	public Request(Request r){
+		this.dateexe=r.getDateexe();
+		this.email=r.getEmail();
+		this.name=r.getName();
+		this.type=r.getType();
+		this.id=r.getId();
+		this.keywords=r.getKeywords();
+		this.languages=r.getLanguages();
+		this.version= r.getVersion();
+	}
 
+	public Request() {
+	}
 
 }

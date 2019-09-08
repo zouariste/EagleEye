@@ -47,9 +47,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    @RequestMapping(value = "http://localhost:5000/json-example", method = RequestMethod.POST)
-    public void visualizeRequest(Request request){
+    @RequestMapping(value = "http://127.0.0.1:5000/json-example", method = RequestMethod.POST)
+    public void visualizeRequest( Request request){
         
     }
+
+    
 
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
 
-    <title>Spring Boot Exemple</title>
+    <title>Dashboards</title>
 
     <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
@@ -13,23 +13,29 @@
         <h2>Request List</h2>
         <table class="table table-striped">
             <tr>
-                <th bgcolor="#00ccff">Visualize</th>
+                <th bgcolor="#00ccff">Visualize / Execute</th>
                 <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Keywords</th>
-                <th>Languages</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Keywords</th>
+                                    <th>Languages</th>
+                                    <th>Last date of execution</th>
                 
             </tr>
             <tr th:each="request : ${requests}">
                 <td bgcolor="#ccf5ff"><a th:href="${'/request/visualize/' + request.id}">Visualize</a></td>
                 <td th:text="${request.id}"><a href="/request/${request.id}">Id</a></td>
-                <td th:text="${request.name}">descirption</td>
-                <td th:text="${request.email}">email</td>
+                <td th:text="${request.name}">Descirption</td>
+                <td th:text="${request.type}">Type</td>
                 <td th:text="${request.keywords}">keywords</td>
                 <td th:text="${request.languages}">Languages</td>
+                <td th:text="${request.dateexe}">Last date of execution</td>
             </tr>
         </table>
+        <h3>Dashboard</h3>
+                            <br>
+                            <iframe src="http://192.168.99.100:5601/app/kibana#/dashboard/0b1d0b70-96e9-11e9-8a53-677a61c592f2?embed=true&_g=(filters:!(),refreshInterval:(pause:!f,value:1000),time:(from:now%2Fd,to:now%2Fd))&_a=(description:'',filters:!(),fullScreenMode:!f,options:(hidePanelTitles:!f,useMargins:!t),panels:!((embeddableConfig:(),gridData:(h:15,i:'1',w:24,x:0,y:10),id:'2dfbb010-96e4-11e9-8a53-677a61c592f2',panelIndex:'1',type:visualization,version:'7.1.1'),(embeddableConfig:(),gridData:(h:15,i:'2',w:24,x:24,y:10),id:ece5c870-96e5-11e9-8a53-677a61c592f2,panelIndex:'2',type:visualization,version:'7.1.1'),(embeddableConfig:(vis:(colors:('-1+to+-0.00001':%23BF1B00,'0.00001+to+1':%23508642))),gridData:(h:18,i:'3',w:48,x:0,y:25),id:'75e8c940-96e8-11e9-8a53-677a61c592f2',panelIndex:'3',type:visualization,version:'7.1.1'),(embeddableConfig:(),gridData:(h:10,i:'4',w:20,x:28,y:0),id:'8a302c30-96e9-11e9-8a53-677a61c592f2',panelIndex:'4',type:visualization,version:'7.1.1'),(embeddableConfig:(),gridData:(h:10,i:'5',w:10,x:6,y:0),id:e5090230-96e9-11e9-8a53-677a61c592f2,panelIndex:'5',type:visualization,version:'7.1.1'),(embeddableConfig:(),gridData:(h:10,i:'6',w:12,x:16,y:0),id:'27441e00-96ea-11e9-8a53-677a61c592f2',panelIndex:'6',type:visualization,version:'7.1.1'),(embeddableConfig:(),gridData:(h:10,i:'7',w:6,x:0,y:0),id:dd0a6e30-ca55-11e9-9a4a-6d80bf626992,panelIndex:'7',type:visualization,version:'7.1.1')),query:(language:kuery,query:''),timeRestore:!f,title:'Dravassor+Reputation+Monitoring',viewMode:edit)" height="1350" width="1140"></iframe>
+        
 
     </div>
 </div>

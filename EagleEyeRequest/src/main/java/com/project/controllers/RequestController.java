@@ -1,10 +1,15 @@
 package com.project.controllers;
 
+import java.util.Calendar;
+import java.util.Date;
 import com.project.entities.Request;
 import com.project.services.RequestService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Request controller.
  */
 @Controller
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RequestController {
 
     private RequestService requestService;
+    @Autowired
+    private KafkaTemplate<String, Request> kafkaTemplate;
 
     @Autowired
     public void setRequestService(RequestService requestService) {
@@ -28,7 +36,7 @@ public class RequestController {
      *
      * @param model
      * @return
-     */
+     */   
     @RequestMapping(value = "/requests", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("requests", requestService.listAllRequests());
@@ -111,6 +119,8 @@ public class RequestController {
         return "dashboards";
     }
 
+
+
        /**
      * Visualize request by its id.
      *
@@ -118,10 +128,19 @@ public class RequestController {
      * @return
      */
     @RequestMapping("request/visualize/{id}")
-    public String visualize(@PathVariable Integer id, Model model) {
+    public String visualize(@PathVariable Integer id,  Model model) {
+        String TOPIC = "visualizer";
         Request r=requestService.getRequestById(id);
-        requestService.visualizeRequest(r);
+        System.out.println(r.getLanguages());
+        Date date = Calendar.getInstance().getTime();
+        r.setDateexe(date);
+        requestService.saveRequest(r);
+        kafkaTemplate.send(TOPIC,requestService.getRequestById(id));
         model.addAttribute("request", requestService.getRequestById(id));
         return "dashbord";
     }
+
+    
+    
+    
 }
