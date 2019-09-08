@@ -7,7 +7,7 @@ from threading import Thread
 
 
 consumer = KafkaConsumer('visualizer', 
-    bootstrap_servers='192.168.99.100:9092',
+    bootstrap_servers='127.0.0.1:9092',
     auto_offset_reset='earliest', 
     enable_auto_commit=True)
 ts = datetime.now().timestamp()

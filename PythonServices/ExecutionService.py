@@ -15,7 +15,7 @@ consumer_secret = "R4ZgR3LR0BYfPsiaz4lC5riVPrsxYVeCTJ1fVSW1bJBWBfpyDW"
 access_token = "3429879328-dW91bfoGyn6OLnsBVHB2X998qTS2xSkQhfpp1r1"
 access_token_secret = "KH0Wc8a74WCjdUk8HzHzWOSPXvCdnst1HV8TWocx4CdlI"
 
-es = Elasticsearch([{'host':'192.168.99.100','port':9200}])
+es = Elasticsearch([{'host':'127.0.0.1','port':9200}])
 
 ThreadCount=0
 
