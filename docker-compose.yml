@@ -19,7 +19,7 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       # For more details see See https://rmoff.net/2018/08/02/kafka-listeners-explained/
       #KAFKA_LISTENERS: LISTENER_INSIDE://kafka:29092,LISTENER_HOST://192.168.99.100:9092
-      KAFKA_ADVERTISED_LISTENERS: LISTENER_INSIDE://kafka:29092,LISTENER_HOST://192.168.99.100:9092
+      KAFKA_ADVERTISED_LISTENERS: LISTENER_INSIDE://kafka:29092,LISTENER_HOST://127.0.0.1:9092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: LISTENER_INSIDE:PLAINTEXT,LISTENER_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: LISTENER_INSIDE
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
@@ -39,11 +39,4 @@ services:
           - 5601:5601
       environment:
           SERVER_NAME: kibana
-          ELASTICSEARCH_URL: http://elasticsearch:9200
-  grafana:
-    image : grafana/grafana
-    ports:
-      - 3000:3000
-    environment:
-          SERVER_NAME: grafana
           ELASTICSEARCH_URL: http://elasticsearch:9200
