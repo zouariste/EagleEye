@@ -1,1 +1,0 @@
-start /b docker-compose up
